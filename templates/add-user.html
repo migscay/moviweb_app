@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block title %} Add a User {% endblock %}
+
+{% block content %}
+<br>
+<div class="container">
+  <form action="{{ url_for('add_user') }}" method="post" >
+    {{ form.user_name.label(class="form-label") }}
+    {{ form.user_name(class="form-control") }}
+    <br>
+    {{ form.submit(class="btn btn-secondary") }}
+    <a href="{{ url_for('list_users') }}" class="button"><button type="button" class="btn btn-secondary">Back to List of Users</button></a>
+  </form>
+</div>
+{% endblock %}

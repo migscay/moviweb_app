@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+  <br>
+  <div class="row row-cols-1 row-cols-md-3">
+    <div class="col mb-4">
+      <div class="card">
+        <img src={{movie["img_url"]}} class="card-img-top" id="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title" id="title">{{movie['Title']}}</h5>
+          <p class="card-text" id="year">Year : {{movie['Year']}}<br>
+          </p>
+          <p id="genre">
+            Genre : {{movie['Genre']}}<br>
+          </p>
+          <p id="review">
+            My review : {{movie['My_review']}}<br>
+          </p>
+          <p id="rating">
+            Rating : {{movie['imdb_rating']}}<br>
+          </p>
+          <p id="details">
+            Imdb : <a href="http://www.imdb.com/title/{{imdb_id}}" target="_blank">
+            Details</a>
+          </p>
+          <br>
+          <form action="{{ url_for('delete_movie', user_id=user_id, imdb_id=imdb_id) }}" method="post" >
+            <button class="btn btn-danger" type="submit">Delete</button>
+            <a href="{{ url_for('list_user_movies', user_id=user_id) }}" class="button"><button type="button" class="btn btn-secondary">Back to Favourites</button></a>
+          </form>
+         </div>
+      </div>
+    </div>
+  </div>
+</div>
+{%endblock%}

@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+<div class="container">
+  <br>
+  <div class="alert alert-secondary" role="alert">
+    <h3>Search Results</h3>
+    <a href="{{ url_for('list_user_movies', user_id=user_id) }}" class="button"><button type="button" class="btn btn-secondary">Back to User Movies</button></a>
+  </div>
+
+  <div class="row row-cols-1 row-cols-md-3">
+    {% for each in results %}
+    <div class="col mb-4">
+      <div class="card">
+        <img src="{{each['Poster']}}" class="card-img-top" id="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title" id="title">{{each["Title"]}}</h5>
+          <p class="card-text" id="year">Year : {{each['Year']}}<br>
+          </p>
+          <p id="type">
+            Type : {{each['Type']}}<br>
+          </p>
+          <p id="details">
+            Imdb : <a href="http://www.imdb.com/title/{{each['imdbID']}}" target="_blank">
+            Details</a>
+          </p>
+          <br>
+          <form action="{{ url_for('add_movie', user_id = user_id, imdb_id = each['imdbID']) }}" method="post" >
+            <div class="input-group">
+              <input type="hidden" name="user_id" value={{user_id}} class="form-control " />
+              <input type="hidden" name="imdb_id" value={{each['imdbID']}} class="form-control " />
+              <div class="input-group-btn">
+                <button class="btn btn-secondary" type="submit">Add to User Favourites</button>
+              </div>
+            </div>
+          </form>
+
+         </div>
+      </div>
+    </div>
+    {% endfor %}
+</div>
+</div>
+{%endblock%}

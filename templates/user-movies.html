@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+<div class="container">
+  <br>
+  <div class="alert alert-secondary" role="alert">
+    <h3>Movies for {{user_name}} </h3>
+  </div>
+  <br>
+  <div class="container text-center add">
+    <a href="{{ url_for('search_movie', user_id=user_id) }}" class="button"><button type="button" class="btn btn-secondary">Add a Movie</button></a>
+  </div>
+  <br>
+  <div class="row row-cols-1 row-cols-md-3">
+    {% for each in movies %}
+    <div class="col mb-4">
+      <div class="card">
+        <img src={{movies[each]["img_url"]}} class="card-img-top" id="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title" id="title">{{movies[each]['Title']}}</h5>
+          <p class="card-text" id="year">Year : {{movies[each]['Year']}}<br>
+          </p>
+          <p id="genre">
+            Genre : {{movies[each]['Genre']}}<br>
+          </p>
+          <p id="review">
+            My review : {{movies[each]['My_review']}}<br>
+          </p>
+          <p id="rating">
+            Rating : {{movies[each]['imdb_rating']}}<br>
+          </p>
+          <p id="details">
+            Imdb : <a href="http://www.imdb.com/title/{{each}}" target="_blank">
+            Details</a>
+          </p>
+          <br>
+          <a href="{{ url_for('update_movie', user_id=user_id, imdb_id=each) }}" class="button"><button type="button" class="btn btn-secondary">Update</button></a>
+          <a href="{{ url_for('delete_movie', user_id=user_id, imdb_id=each) }}" class="button"><button type="button" class="btn btn-danger">Remove</button></a>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+{%endblock%}

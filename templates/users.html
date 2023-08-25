@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block title %} List of Users {% endblock %}
+
+{% block content %}
+<!-- Container -->
+<div class="container">
+  {% for user in users %}
+  <br>
+  <div class="alert alert-secondary" role="alert">
+    <a href="{{ url_for('list_user_movies', user_id=user['id']) }}" class="button">Movies for {{user['name']}}</a>
+  </div>
+  {% endfor %}
+    <br><br>
+    <div class="container text-center add">
+      <a href="{{ url_for('add_user') }}" class="button"><button type="button" class="btn btn-secondary" >Add a User</button></a>
+    </div>
+
+</div>
+{% endblock %}

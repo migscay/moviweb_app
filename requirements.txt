@@ -1,0 +1,5 @@
+Flask~=2.3.2
+requests~=2.29.0
+WTForms~=3.0.1
+python-dotenv~=1.0.0
+Flask-WTF~=1.1.1

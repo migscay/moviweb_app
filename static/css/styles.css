@@ -26,34 +26,6 @@
 	 flex-wrap: wrap;
 	 max-width: 1500px;
 }
- p.overview {
-	 font-size: 12px;
-	 height: 200px;
-	 width: 100%;
-	 overflow: hidden;
-	 text-overflow: ellipsis;
-}
- .heading {
-	 width: 100%;
-	 margin-left: 1rem;
-	 font-weight: 900;
-	 font-size: 1.618rem;
-	 text-transform: uppercase;
-	 letter-spacing: 0.1ch;
-	 line-height: 1;
-	 padding-bottom: 0.5em;
-	 margin-bottom: 1rem;
-	 position: relative;
-}
- .heading:after {
-	 display: block;
-	 content: '';
-	 position: absolute;
-	 width: 60px;
-	 height: 4px;
-	 background: linear-gradient(135deg, #1a9be6, #1a57e6);
-	 bottom: 0;
-}
  .description {
 	 width: 100%;
 	 margin-top: 0;
